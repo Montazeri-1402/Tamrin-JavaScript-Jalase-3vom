@@ -1,0 +1,16 @@
+const obj = {
+  key1: 'مقدار 1',
+  key2: {
+    nestedKey1: 'مقدار 2',
+    nestedKey2: {
+      nestedNestedKey: 'مقدار 3'
+    }
+  },
+  key3: 'مقدار 4'
+};
+
+function customSearchFunction(value) {
+  return value === 'مقدار 2';
+}
+
+console.log(findNestedKeyWithFunction(obj, customSearchFunction));  // { nestedKey1: 'مقدار 2' }

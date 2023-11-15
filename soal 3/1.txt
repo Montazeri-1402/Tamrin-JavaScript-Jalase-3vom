@@ -1,0 +1,19 @@
+function findNestedKeyWithFunction(obj, searchFunction) {
+  // بررسی تابع جستجو در سطح فعلی
+  if (searchFunction(obj)) {
+    return obj;
+  }
+
+  // جستجو در زیر آبجکت‌ها
+  for (let key in obj) {
+    if (typeof obj[key] === 'object') {
+      const result = findNestedKeyWithFunction(obj[key], searchFunction);
+      if (result !== undefined) {
+        return result;
+      }
+    }
+  }
+
+  // کلید پیدا نشد
+  return undefined;
+}

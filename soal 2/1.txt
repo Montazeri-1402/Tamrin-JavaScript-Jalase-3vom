@@ -1,0 +1,19 @@
+function findNestedKey(obj, key) {
+  // بررسی کلید در سطح فعلی
+  if (key in obj) {
+    return obj[key];
+  }
+
+  // جستجو در زیر آبجکت‌ها
+  for (let nestedKey in obj) {
+    if (typeof obj[nestedKey] === 'object') {
+      const result = findNestedKey(obj[nestedKey], key);
+      if (result !== undefined) {
+        return result;
+      }
+    }
+  }
+
+  // کلید پیدا نشد
+  return undefined;
+}
